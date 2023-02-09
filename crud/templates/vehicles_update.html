@@ -1,0 +1,21 @@
+
+{%extends 'base.html'%}
+{%block body_block%}
+    <div class="container">
+        <div class="row mt-5">
+
+            <div class="col-4"></div>
+            <div class="col-4 sm-5 md-3 lg-1 bg-dark">
+                <h4 style="margin-left: 35%; margin-top: 5%; color: aliceblue;">Update Vehicle</h4>
+
+                <form action="" method="post">
+                    {%csrf_token%}
+                    {{form.as_p}}                           
+                    <input type="submit" value="update" class="btn btn-success mb-3">
+
+                </form>
+            </div>
+            <div class="col-4"></div>
+        </div>
+    </div>
+{%endblock%}
