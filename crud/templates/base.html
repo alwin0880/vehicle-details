@@ -12,7 +12,16 @@
 </head>
 
 <body>
-    
+
+    <style>
+        .errorlist{
+            color: wheat;
+        }
+        ul{
+            list-style-type: none;
+        }
+    </style>
+
 
     <nav class="navbar navbar-expand-lg bg-warning">
         <div class="container-fluid">
@@ -20,25 +29,31 @@
                 aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <a class="navbar-brand ms-5 fw-bolder fs-3" href="{%url 'list'%}">Home</a>
+            <span class="navbar-brand me-5">Vehicle Details</span>
             <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item offcanvas offcanvas-end">
+                        <a class="nav-link ms-5 fw-bold btn btn-lg active" href="{%url 'list'%}">Home</a>
+                    </li>
                     {%if request.user.can_create%}
                     <li class="nav-item">
-                        <a class="nav-link active ms-5 fw-bold btn btn-lg" aria-current="page" href="{%url 'create'%}">Add Vehicle</a>
+                        <a class="nav-link active ms-2 fw-bold btn btn-lg"  href="{%url 'create'%}">Add Vehicle</a>
                     </li>
                     {%endif%}
-                    <li class="nav-item">
-                        <a class="nav-link active ms-5 fw-bold btn btn-lg" href="{%url 'logout'%}">Logout</a>
+                    <li class="nav-item offcanvas offcanvas-end" >
+                        <a class="nav-link active ms-2 fw-bold btn btn-lg" href="{%url 'logout'%}">Logout</a>
                     </li>
                     <div class=" offcanvas offcanvas-end me-5 mt-3 disabled" style="position: fixed;">
-                        <h4>{{request.user}}</h4>
+                        <h5>{{request.user}}</h5>
                     </div>
                 </ul>
 
             </div>
         </div>
     </nav>
+
+
+    
 
     {%block body_block%}
 

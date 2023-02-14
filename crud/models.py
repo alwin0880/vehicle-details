@@ -5,7 +5,6 @@ from django.contrib.auth.models import PermissionsMixin
 # Create your models here.
 
 
-
 class User(AbstractBaseUser,PermissionsMixin):
     ROLE_CHOICES = (
         ('Super Admin', 'Super Admin'),
@@ -44,7 +43,7 @@ class Vehicle(models.Model):
         ("Three","Three Wheeler"),
         ("Four","Four Wheeler"),
         )
-    vehicle_number=models.CharField(max_length=10,validators=[RegexValidator(r'^[0-9a-zA-Z]*$',message="Only alphanumeric characters are allowed in vehicle_number.",)])
+    vehicle_number=models.CharField(max_length=10,validators=[RegexValidator(r'^[0-9a-zA-Z]*$',message="Enter a valid Number",)])
     vehicle_type=models.CharField(max_length=15,choices=vehicle_choices,default="Two")
     vehicle_model=models.CharField(max_length=50)
     vehicle_description=models.CharField(max_length=100)

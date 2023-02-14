@@ -29,11 +29,16 @@
                 <table class="table table-bordered">
                     <thead>
                         <tr>
-                            <th>Id</th>
-                            <th>Vehicle_Number</th>
-                            <th>Vehicle_Type</th>
-                            <th>Vehicle_Modal</th>
-                            <th>Vehicle_Description</th>
+                            <th style="text-align: center;">Id</th>
+                            <th style="text-align: center;">Vehicle_Number</th>
+                            <th style="text-align: center;">Vehicle_Type</th>
+                            <th style="text-align: center;">Vehicle_Modal</th>
+                            <th style="text-align: center;">Vehicle_Description</th>
+                            {%if request.user.can_update or request.user.can_delete%}
+                            <th style="text-align: center;">
+                                Actions
+                            </th>
+                            {%endif%}
                             
                         </tr>
                     </thead>
@@ -49,12 +54,12 @@
                             
                                 {%if request.user.can_update%}
                                 <td>
-                                    <a href=" {%url 'update' veh.id%}" class="btn btn-outline-secondary">update</a>
-                                </td>
+                                    <a href=" {%url 'update' veh.id%}" class="btn btn-outline-secondary ms-3">update</a>
+                                
                                 {%endif%}
                                 {%if request.user.can_delete%}
-                                <td>
-                                    <a href=" {%url 'remove' veh.id%}" class="btn btn-outline-secondary">Delete</a>
+                                
+                                    <a href=" {%url 'remove' veh.id%}" class="btn btn-outline-secondary ms-2">Delete</a>
                                 </td>
                                 {%endif%}
                             </td>
